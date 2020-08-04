@@ -1,11 +1,12 @@
 import React, {useContext} from "react"
 import {TodoListContext} from "../context/tasks-list-context"
 import Task from "./task"
+import './styles.css'
 
 const TodoList = () => {
     const {tasks} = useContext(TodoListContext)
     return (
-        <div>
+        <div className="card-tasks-list">
             {tasks.length ?
                 <ul>
                     {tasks.map(task => {
@@ -15,9 +16,9 @@ const TodoList = () => {
                     })}
                 </ul>
                 :
-                <div>
+                <h4>
                     No tasks
-                </div>
+                </h4>
             }
         </div>
     )

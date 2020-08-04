@@ -1,12 +1,10 @@
 import React from 'react'
-import {Typography} from "antd";
+import './styles.css'
 
 
 const Header = () => {
     return (
-        <Typography>
-            ToDo List
-        </Typography>
+        <h2 className="app-header">Todo List</h2>
     )
 }
 

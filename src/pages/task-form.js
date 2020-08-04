@@ -1,5 +1,6 @@
 import React, {useContext, useState, useEffect} from 'react'
 import {TodoListContext} from '../context/tasks-list-context'
+import './styles.css'
 
 const TaskForm = () => {
     const {tasks, addTask, clearList, editTask, editTaskItem} = useContext(TodoListContext)
@@ -28,26 +29,33 @@ const TaskForm = () => {
         }
     }, [editTaskItem])
 
+    const clearAllList = () => {
+        clearList()
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <input
                 onChange={handleInputChange}
                 value={title}
-                type="text"
                 placeholder="Add task"
                 required
             />
-            <div>
-                <button>
-                    {editTask ?
-                        <span> Edit Task</span>
-                        :
-                        <span> Add Task</span>
-                    }
-                </button>
+
+            <div className="card-buttons">
+                {editTask ?
+                    <button className="btn indigo darken-4" type="submit" name="action">
+                        Edit Task
+                    </button>
+                    :
+                    <button className="btn waves-effect waves-light" type="submit" name="action">
+                        Add Task
+                    </button>
+                }
 
                 <button
-                    onClick={() => clearList()}
+                    className="btn red lighten-1"
+                    onClick={clearAllList}
                     disabled={tasks.length === 0}
                 >
                     Clear List

@@ -23,6 +23,7 @@ const TodoListContextProvider = (props) => {
 
     const clearList = () => {
         setTasks([])
+        setEditTask(null)
     }
 
     const findTask = (id) => {
